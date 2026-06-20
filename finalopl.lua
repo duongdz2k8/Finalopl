@@ -69,9 +69,9 @@ local easyMobs = {
     ["Lv28 Fredde"] = true, ["Lv28 Freyd"] = true,
     ["Lv28 Friedrich"] = true, ["Lv29 Frued"] = true, ["Lv3 Crab"] = true,
     ["Lv30 Thug"] = true, ["Lv32 Fredric"] = true, ["Lv32 Thief"] = true,
-    ["Lv34 Freddi"] = true, ["Lv360 Bruno"] = true,
+    ["Lv34 Freddi"] = true, ["Lv219 Cave Demon"] = true,
     ["Lv4 Angry Freddy"] = true, ["Lv4 Boar"] = true, ["Lv4 Crab"] = true, ["Lv40 Thug"] = true,
-    ["Lv440 Buster"] = true, ["Lv5 Crab"] = true, ["Lv500 Bucky"] = true, ["Lv9 Bandit Traitor"] = true,
+    ["Lv5 Crab"] = true, ["Lv9 Bandit Traitor"] = true,
 }
 
 local mediumMobs = {
