@@ -36,6 +36,9 @@ local ESPFolder = nil
 local ESPConnection = nil
 local menuVisible = true
 
+local AutoKenHakiEnabled = false
+local AutoBusoHakiEnabled = false
+
 local AutoSkillEnabled = false
 local SelectedSkills = {}
 local AvailableSkills = {"Z", "X", "C", "V", "B", "N", "F", "L", "H", "J", "K", "G"}
@@ -219,7 +222,7 @@ end)
 task.spawn(function()
     while true do
         task.wait(2)
-        if not AutoHakiEnabled then continue end
+        if not AutoKenHakiEnabled then continue end
         local char = getCharacter()
         if char then
             local observation = char:GetAttribute("Observation")
@@ -228,6 +231,24 @@ task.spawn(function()
                     VirtualInput:SendKeyEvent(true, Enum.KeyCode.R, false, game)
                     task.wait(0.1)
                     VirtualInput:SendKeyEvent(false, Enum.KeyCode.R, false, game)
+                end)
+            end
+        end
+    end
+end)
+
+task.spawn(function()
+    while true do
+        task.wait(2)
+        if not AutoBusoHakiEnabled then continue end
+        local char = getCharacter()
+        if char then
+            local buso = char:GetAttribute("Haki")
+            if not buso then
+                pcall(function()
+                    VirtualInput:SendKeyEvent(true, Enum.KeyCode.E, false, game)
+                    task.wait(0.1)
+                    VirtualInput:SendKeyEvent(false, Enum.KeyCode.E, false, game)
                 end)
             end
         end
@@ -1134,12 +1155,20 @@ ConfigFarmTab:AddDivider()
 local HakiSection = ConfigFarmTab:AddSection("Auto Haki")
 
 HakiSection:AddToggle("AutoHaki", {
-    Title = "Auto Haki ON/OFF",
+    Title = "Auto Ken Haki",
     Default = false,
     Callback = function(v)
-        AutoHakiEnabled = v
+        AutoKenHakiEnabled = v
     end,
 })
+HakiSection:AddToggle("AutoHaki", {
+    Title = "Auto Buso Haki",
+    Default = false,
+    Callback = function(v)
+        AutoBusoHakiEnabled = v
+    end,
+})
+
 
 local TeleportSection = TeleportTab:AddSection("Teleport")
 
